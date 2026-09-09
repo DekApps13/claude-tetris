@@ -51,6 +51,7 @@ const playBtn = document.getElementById('play-btn');
 const clearScoresBtn = document.getElementById('clear-scores-btn');
 
 let board, current, next, score, lines, level, paused, gameOver, lastTime, dropAccum, dropInterval, animId, combo, bestCombo;
+let started = false;
 
 /* ---- Tabla de records local ---- */
 const HISCORE_KEY = 'tetris-highscores';
@@ -335,7 +336,7 @@ function showStartScreen() {
 }
 
 function togglePause() {
-  if (gameOver) return;
+  if (gameOver || !started) return;
   paused = !paused;
   if (!paused) {
     lastTime = performance.now();
@@ -366,6 +367,7 @@ function loop(ts) {
 }
 
 function init() {
+  started = true;
   board = createBoard();
   score = 0;
   lines = 0;
@@ -391,7 +393,7 @@ function init() {
 
 document.addEventListener('keydown', e => {
   if (e.code === 'KeyP') { togglePause(); return; }
-  if (paused || gameOver) return;
+  if (!started || paused || gameOver) return;
   switch (e.code) {
     case 'ArrowLeft':
       if (!collide(current.shape, current.x - 1, current.y)) current.x--;
