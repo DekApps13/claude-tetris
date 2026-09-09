@@ -179,6 +179,30 @@ kbd {
   transition: background 0.25s, color 0.25s, border-color 0.25s;
 }
 
+/* ---- Selector de skin ---- */
+.skin-picker select {
+  background: var(--kbd-bg);
+  border: 1px solid var(--kbd-border);
+  border-radius: 4px;
+  color: var(--kbd-text);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 5px 6px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.skin-picker select:hover {
+  border-color: #7aa2f7;
+  color: #7aa2f7;
+}
+
+body[data-skin="neon"] #board,
+body[data-skin="neon"] #next-canvas {
+  background: #000;
+}
+
 /* ---- Overlay ---- */
 .overlay {
   position: absolute;
