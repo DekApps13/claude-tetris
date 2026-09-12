@@ -42,8 +42,18 @@
             <li><kbd>↑</kbd> rotar</li>
             <li><kbd>↓</kbd> bajar</li>
             <li><kbd>Space</kbd> caída</li>
-            <li><kbd>P</kbd> pausa</li>
+            <li><kbd>P</kbd> <kbd>Esc</kbd> pausa</li>
           </ul>
+        </div>
+
+        <div class="panel-section skin-picker">
+          <label class="label" for="skin-select">SKIN</label>
+          <select id="skin-select">
+            <option value="retro">Retro</option>
+            <option value="neon">Neón</option>
+            <option value="pastel">Pastel</option>
+            <option value="pixel">Pixel</option>
+          </select>
         </div>
       </aside>
     </div>
@@ -52,7 +62,57 @@
       <div class="overlay-box">
         <p id="overlay-title">GAME OVER</p>
         <p id="overlay-score"></p>
+        <div id="save-score" class="save-score hidden">
+          <input id="player-name" type="text" maxlength="12" placeholder="Tu nombre" />
+          <button id="save-score-btn">Guardar</button>
+        </div>
+        <table id="overlay-scores" class="scores-table hidden">
+          <thead>
+            <tr><th>#</th><th>Score</th><th>Nombre</th><th>Líneas</th><th>Combo</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
         <button id="restart-btn">Reiniciar</button>
+      </div>
+    </div>
+
+    <div id="pause-menu" class="overlay hidden">
+      <div class="overlay-box">
+        <p id="pause-title">PAUSA</p>
+
+        <div class="pause-level">
+          <label class="label" for="start-level">NIVEL INICIAL</label>
+          <select id="start-level"></select>
+        </div>
+
+        <button id="resume-btn" class="menu-btn">Reanudar</button>
+        <button id="menu-restart-btn" class="menu-btn">Reiniciar</button>
+        <button id="controls-btn" class="menu-btn">Ver controles</button>
+
+        <div id="pause-controls" class="controls hidden">
+          <ul>
+            <li><kbd>←</kbd><kbd>→</kbd> mover</li>
+            <li><kbd>↑</kbd> rotar</li>
+            <li><kbd>↓</kbd> bajar</li>
+            <li><kbd>Space</kbd> caída</li>
+            <li><kbd>P</kbd> <kbd>Esc</kbd> pausa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="start-screen" class="overlay-screen">
+      <div class="overlay-box">
+        <p class="start-title">RECORDS</p>
+        <table id="start-scores" class="scores-table">
+          <thead>
+            <tr><th>#</th><th>Score</th><th>Nombre</th><th>Líneas</th><th>Combo</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div id="start-extras"></div>
+        <button id="play-btn">JUGAR</button>
+        <button id="clear-scores-btn" class="secondary-btn">Borrar records</button>
       </div>
     </div>
   </div>
